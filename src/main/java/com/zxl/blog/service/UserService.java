@@ -1,8 +1,11 @@
 package com.zxl.blog.service;
 
 import com.zxl.blog.db.entities.User;
+import com.zxl.blog.db.entities.UserInfo;
+import com.zxl.blog.db.mapper.UserInfoMapperEx;
 import com.zxl.blog.db.mapper.UserMapperEx;
-import com.zxl.blog.exception.UserException;
+import com.zxl.blog.db.mapper.base.UserInfoMapper;
+import com.zxl.blog.db.pojo.UserDetail;
 import com.zxl.blog.service.base.UserServiceBase;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +18,13 @@ public class UserService extends UserServiceBase {
 
     @Autowired
     private UserMapperEx userMapper;
+    @Autowired
+    private UserInfoMapperEx userInfoMapper;
+
+    public UserDetail userDetail(String account) {
+        return userMapper.selectUserDetail(account);
+    }
+
     public User login(String account, String password, HttpServletRequest request){
         User userTem = userMapper.selectByAccount(account);
         //不存在

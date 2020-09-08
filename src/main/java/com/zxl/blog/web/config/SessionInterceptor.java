@@ -14,15 +14,14 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        //访问静态资源直接通过
-        if(StringUtils.startsWith(request.getRequestURI(),"/static")) return true;
-
         Object object = request.getSession().getAttribute("user");
 
         //访问登录界面或者服务
         if(StringUtils.startsWith(request.getRequestURI(),"/user/login")){
             //自动登录
             if(object != null){
+                //刷新session时间
+                request.getSession().setMaxInactiveInterval(1800);
                 response.sendRedirect("/user/index");
             }
 
@@ -31,6 +30,7 @@ public class SessionInterceptor implements HandlerInterceptor {
 
         //访问其他资源需要登录
         if(object != null){
+            request.getSession().setMaxInactiveInterval(1800);
             return true;
         }
         else{

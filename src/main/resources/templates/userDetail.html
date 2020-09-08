@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="|${userDetail.account}'s personal|"></title>
+</head>
+<body>
+    <p th:text="${userDetail.account}"></p>
+    <p th:text="${userDetail.actived}"></p>
+    <p th:text="${userDetail.name}"></p>
+    <p th:text="${userDetail.head}"></p>
+    <p th:text="${userDetail.phone}"></p>
+    <p th:text="${userDetail.email}"></p>
+    <p th:text="${userDetail.createTime}"></p>
+    <p th:text="${userDetail.motto}"></p>
+    <p th:text="${userDetail.readMusic}"></p>
+    <p th:text="${userDetail.articleSummary}"></p>
+</body>
+</html>

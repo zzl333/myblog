@@ -13,4 +13,28 @@
         `user`.account = #{account}
 
   </select>
+
+    <!--void selectUserDetail(String account);-->
+    <select id="selectUserDetail" resultType="com.zxl.blog.db.pojo.UserDetail">
+        SELECT
+            `user`.account account,
+            `user`.actived actived,
+            user_info.user_name `name`,
+            user_info.user_head head,
+            user_info.phone phone,
+            user_info.email email,
+            user_info.create_time createTime,
+            user_info.motto motto,
+            user_info.read_music readMusic,
+            COUNT( * ) articleSummary
+        FROM
+            article_info
+            LEFT JOIN artcle_content ON article_info.art_content_id = artcle_content.id
+            LEFT JOIN `user` ON article_info.user_id = `user`.uid
+            LEFT JOIN user_info ON article_info.user_id = user_info.uid
+        WHERE
+            `user`.account = #{account}
+        GROUP BY
+            `user`.uid;
+    </select>
 </mapper>
