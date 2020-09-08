@@ -36,11 +36,9 @@ public class SessionConfiguration extends WebMvcConfigurationSupport {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //拦截路径为整个项目
-//        registry.addInterceptor(new SessionInterceptor());
-//                .addPathPatterns("/**")
-//                .excludePathPatterns("/asserts/**","/webjars/**");
-//                .excludePathPatterns("/user/login*")
-//                .excludePathPatterns("/user/index");
+        registry.addInterceptor(new SessionInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/asserts/**","/webjars/**");
         super.addInterceptors(registry);
     }
 }
