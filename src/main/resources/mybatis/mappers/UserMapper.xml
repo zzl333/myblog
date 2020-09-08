@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zxl.blog.db.mapper.UserMapperEx">
+  <!--User selectByAccount(@Param("account") String account);-->
+  <select id="selectByAccount" resultType="com.zxl.blog.db.entities.User">
+    SELECT
+        `user`.account,
+        `user`.`password`,
+        `user`.actived
+    FROM
+        `user`
+    WHERE
+        `user`.account = #{account}
+
+  </select>
+</mapper>
