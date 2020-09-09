@@ -1,5 +1,6 @@
 package com.zxl.blog.web.config;
 
+import com.zxl.blog.db.entities.User;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,6 +22,7 @@ public class SessionInterceptor implements HandlerInterceptor {
             //自动登录
             if(object != null){
                 //刷新session时间
+                System.out.println(((User) object).toString());
                 request.getSession().setMaxInactiveInterval(1800);
                 response.sendRedirect("/user/index");
             }

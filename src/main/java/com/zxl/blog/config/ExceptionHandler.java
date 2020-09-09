@@ -12,7 +12,7 @@ public class ExceptionHandler {
     @org.springframework.web.bind.annotation.ExceptionHandler(value = Exception.class)
     ModelAndView handlerException(Exception ex, HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("404");
+        modelAndView.setViewName("error");
         modelAndView.setStatus(HttpStatus.EXPECTATION_FAILED);
         modelAndView.addObject("msg", ex.getMessage());
         modelAndView.addObject("info","你可能访问了一个假页面");

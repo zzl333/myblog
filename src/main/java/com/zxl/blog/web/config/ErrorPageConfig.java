@@ -16,8 +16,8 @@ public class ErrorPageConfig {
     @Bean
     public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer() {
         return (factory -> {
-            ErrorPage errorPage404 = new ErrorPage(HttpStatus.NOT_FOUND, "/404.html");
-            factory.addErrorPages(errorPage404);
+            ErrorPage errorPage = new ErrorPage( "/error.html");
+            factory.addErrorPages(errorPage);
         });
     }
 }

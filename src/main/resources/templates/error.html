@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+	<head>
+		<meta charset="UTF-8">
+		<title>#_#</title>
+	</head>
+
+	<body>
+		<h2 style="color: red; text-align: center">404</h2>
+		<h2 style="color: blue; text-align: center" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></h2>
+		<h1 style="color: yellow; text-align: center">警告，不要瞎jr搜</h1>
+
+	</body>
+</html>

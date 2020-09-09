@@ -56,7 +56,7 @@ public class UserApi extends UserBaseApi {
     @GetMapping("/user/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("user");
-        return "login";
+        return "redirect:login";
     }
 
     @GetMapping("/usesr/userDetail")
